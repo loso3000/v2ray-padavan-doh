@@ -1,7 +1,13 @@
 on:
-  push:
-    tags:
-      - v*
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+  watch:
+    types: started
 
 jobs:
   build:
